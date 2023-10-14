@@ -14,6 +14,7 @@ int _strlen(char *s);
 int print_number(int n, int count);
 int print_binary(int n, int count);
 int search_advanced(const char c, int count);
+int search(va_list ap, const char c, int count);
 
 /**
  * struct search - searches for certain values
