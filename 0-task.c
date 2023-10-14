@@ -61,6 +61,9 @@ int search(va_list ap, const char c, int count)
 	case ('s'):
 	{
 		str = va_arg(ap, char *);
+		if (str == NULL)
+			return(-1);
+		exit;
 		count += write_str(str, count);
 		break;
 	}
