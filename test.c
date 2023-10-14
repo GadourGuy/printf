@@ -7,7 +7,7 @@
 
 int main(void)
 {
-	_printf("%i in binary is %b\n", 98,  98);
-	_printf("%i in binary is %       d", 98, 98);
+	_printf("%c is printed\n%s is printed\n", 'c', "string");
+	_printf("%% is also printed\nlastly %d and %i is printed", 40, 12);
 	return (0);
 }

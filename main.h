@@ -11,8 +11,9 @@ int write_str(char *str, int count);
 int write_char(char c);
 int _printf(const char *format, ...);
 int _strlen(char *s);
-void print_number(int n, int count);
+int print_number(int n, int count);
 int print_binary(int n, int count);
+int search_advanced(const char c, int count);
 
 /**
  * struct search - searches for certain values
