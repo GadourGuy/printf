@@ -46,12 +46,12 @@ int write_char(char c)
 /**
  *print_number - prints an integer.
  *@n: input number
- *@count: number of input data.
  *
  * Return: count.
  */
-int print_number(int n, int count)
+int print_number(int n)
 {
+	int count = 0;
 	unsigned int i;
 
 	if (n < 0)
@@ -61,12 +61,11 @@ int print_number(int n, int count)
 	}
 	i = n;
 	count++;
-	i /= 10;
-	if (i != 0)
+	if (i / 10 != 0)
 	{
+		count = print_number(i / 10);
 		count++;
-		print_number(i, count);
 	}
-	write_char((unsigned int)n % 10 + '0');
+	write_char((i % 10) + '0');
 	return (count);
 }
