@@ -64,7 +64,7 @@ int search_advanced(const char c, va_list ap)
 		case ('u'):
 		{
 			u = va_arg(ap, unsigned int);
-			count += print_unsigned(u);
+			count += print_unsign(u);
 			break;
 		}
 		case ('o'):

@@ -27,17 +27,17 @@ int print_binary(unsigned int n)
 	return (count);
 }
 /**
- * print_unsigned - print unsigned number
+ * print_unsign - print unsigned number
  * @u: number to be printed
  * Return: count
  */
-int print_unsigned(unsigned u)
+int print_unsign(unsigned int u)
 {
 	int count = 0;
 
 	if (u / 10 != 0)
 	{
-		count = print_number(u / 10);
+		count = print_unsign(u / 10);
 		count++;
 	}
 	write_char((u % 10) + '0');
@@ -64,7 +64,7 @@ int print_octal(unsigned int n)
 }
 
 /**
- * print_hexa - prints a number in hexa
+ * print_s_hexa - prints a number in hexa
  * @n: number to be printed
  * Return: count
  */

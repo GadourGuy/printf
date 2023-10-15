@@ -19,7 +19,7 @@ int search_advanced(const char c, va_list ap);
 int print_s_hexa(unsigned int n);
 int print_octal(unsigned int n);
 int print_c_hexa(unsigned int n);
-int print_unsigned(unsigned int n);
+int print_unsign(unsigned int n);
 /**
  * struct search - searches for certain values
  * @f: function pointer
