@@ -34,6 +34,7 @@ int print_binary(int n)
 int print_unsigned(unsigned u)
 {
 	int count = 0;
+
 	if (u / 10 != 0)
 	{
 		count = print_number(u / 10);
@@ -49,11 +50,12 @@ int print_unsigned(unsigned u)
  * Return: count
  */
 
-int print_octal(int n)
-{ 
+int print_octal(unsigned int n)
+{
 	int count = 0;
-        if (n != 0)
-        {
+
+	if (n != 0)
+	{
 		count = print_octal(n / 8);
 		write_char(n % 8 + '0');
 		count++;
@@ -66,9 +68,9 @@ int print_octal(int n)
  * @n: number to be printed
  * Return: count
  */
-int print_s_hexa(int n)
+int print_s_hexa(unsigned int n)
 {
-	int x, count = 0;
+	unsigned int x, count = 0;
 	char c;
 
 	if (n != 0)
@@ -76,7 +78,7 @@ int print_s_hexa(int n)
 		count = print_s_hexa(n / 16);
 		x = n % 16;
 		if (x < 10)
-		       	write_char(x + '0');
+		write_char(x + '0');
 		else if (x >= 10 && x < 16)
 		{
 			c = 'a' + (x - 10);
@@ -91,14 +93,14 @@ int print_s_hexa(int n)
  * @n: number to be printed
  * Return: count
  */
-int print_c_hexa(int n)
+int print_c_hexa(unsigned int n)
 {
-	int x, count = 0;
+	unsigned int x, count = 0;
 	char c;
 
 	if (n != 0)
 	{
-		count = print_s_hexa(n / 16);
+		count = print_c_hexa(n / 16);
 		x = n % 16;
 		if (x < 10)
 			write_char(x + '0');

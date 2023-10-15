@@ -39,30 +39,28 @@ int switch_function(va_list ap, const char format)
 			count++;
 			break;
 		}
-		case ('b'):
-		{
-			d = va_arg(ap, int);
-			count += print_binary(d);
-			break;
-		}
 	}
 	return (count);
 }
-
 /**
  * search_advanced - searches for advanced tasks
  * @c: char to be searched
  * @ap: number of given data
- *
  * Return: number of count.
  */
-int search_advanced(const char c, __attribute__((unused)) va_list ap)
+int search_advanced(const char c, va_list ap)
 {
 	unsigned int u;
-	int d, count = 0;
+	int count = 0;
 
 	switch (c)
 	{
+		case ('b'):
+		{
+			u = va_arg(ap, unsigned int);
+			count += print_binary(u);
+		break;
+		}
 		case ('u'):
 		{
 			u = va_arg(ap, unsigned int);
@@ -71,20 +69,20 @@ int search_advanced(const char c, __attribute__((unused)) va_list ap)
 		}
 		case ('o'):
 		{
-			d = va_arg(ap, int);
-			count += print_octal(d);
+			u = va_arg(ap, unsigned int);
+			count += print_octal(u);
 			break;
 		}
 		case ('x'):
 		{
-			d = va_arg(ap, int);
-			count += print_s_hexa(d);
+			u = va_arg(ap, unsigned int);
+			count += print_s_hexa(u);
 			break;
 		}
 		case ('X'):
 		{
-			d = va_arg(ap, int);
-			count += print_c_hexa(d);
+			u = va_arg(ap, unsigned int);
+			count += print_c_hexa(u);
 			break;
 		}
 	}
