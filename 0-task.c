@@ -22,7 +22,8 @@ int _printf(const char *format, ...)
 			count += check;
 			if (!check)
 			{
-				search_advanced(format[i], ap);
+				check = search_advanced(format[i], ap);
+				count += check;
 			}
 		}
 			else
