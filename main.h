@@ -12,7 +12,7 @@ int write_char(char c);
 int _printf(const char *format, ...);
 int _strlen(char *s);
 int print_number(int n);
-int print_binary(int n);
+int print_binary(unsigned int n);
 int switch_function(va_list, char c);
 int advanced_function(va_list, char c);
 int search_advanced(const char c, va_list ap);
