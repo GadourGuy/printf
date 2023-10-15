@@ -7,7 +7,7 @@
  * Return: number of digits
  */
 
-int print_binary(int n)
+int print_binary(unsigned int n)
 {
 	int count = 0;
 
