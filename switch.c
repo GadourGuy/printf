@@ -16,33 +16,32 @@ int switch_function(va_list ap, const char format)
 		case ('c'):
 		{
 			c = va_arg(ap, int);
-			write_char(c);
-			count++;
+			if (c)
+			{
+				write_char(c);
+				count++;
+			}
 			break;
 		}
 		case ('s'):
 		{
 			str = va_arg(ap, char *);
-			count += write_str(str);
+			if (str)
+				count += write_str(str);
 			break;
 		}
 		case ('d'):
 		case ('i'):
 		{
 			d = va_arg(ap, int);
-			count += print_number(d);
+			if (d)
+				count += print_number(d);
 			break;
 		}
 		case ('%'):
 		{
 			write_char('%');
 			count++;
-			break;
-		}
-		case ('b'):
-		{
-			d = va_arg(ap, int);
-			count += print_binary(d);
 			break;
 		}
 	}
