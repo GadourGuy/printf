@@ -58,7 +58,35 @@ int switch_function(va_list ap, const char format)
  */
 int search_advanced(const char c, __attribute__((unused)) va_list ap)
 {
-	switch (c);
+	unsigned int u;
+	int d, count = 0;
 
-	return (0);
+	switch (c)
+	{
+		case ('u'):
+		{
+			u = va_arg(ap, unsigned int);
+			count += print_unsigned(u);
+			break;
+		}
+		case ('o'):
+		{
+			d = va_arg(ap, int);
+			count += print_octal(d);
+			break;
+		}
+		case ('x'):
+		{
+			d = va_arg(ap, int);
+			count += print_s_hexa(d);
+			break;
+		}
+		case ('X'):
+		{
+			d = va_arg(ap, int);
+			count += print_c_hexa(d);
+			break;
+		}
+	}
+	return (count);
 }
