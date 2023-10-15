@@ -30,7 +30,7 @@ int switch_function(va_list ap, const char format)
 		case ('i'):
 		{
 			d = va_arg(ap, int);
-			count += print_number(d, count);
+			count += print_number(d);
 			break;
 		}
 		case ('%'):
