@@ -16,6 +16,10 @@ int print_binary(int n);
 int switch_function(va_list, char c);
 int advanced_function(va_list, char c);
 int search_advanced(const char c, va_list ap);
+int print_octal(int n);
+int print_s_hexa(int n);
+int print_c_hexa(int n);
+int print_unsigned(unsigned int n);
 /**
  * struct search - searches for certain values
  * @f: function pointer
