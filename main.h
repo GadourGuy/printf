@@ -7,7 +7,7 @@
 #include <unistd.h>
 #include <stdarg.h>
 
-int write_str(char *str, int count);
+int write_str(char *str);
 int write_char(char c);
 int _printf(const char *format, ...);
 int _strlen(char *s);
@@ -15,6 +15,7 @@ int print_number(int n, int count);
 int print_binary(int n);
 int switch_function(va_list, char c);
 int advanced_function(va_list, char c);
+int search_advanced(const char c, va_list ap);
 /**
  * struct search - searches for certain values
  * @f: function pointer

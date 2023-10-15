@@ -23,7 +23,7 @@ int switch_function(va_list ap, const char format)
 		case ('s'):
 		{
 			str = va_arg(ap, char *);
-			count += write_str(str, count);
+			count += write_str(str);
 			break;
 		}
 		case ('d'):
@@ -47,4 +47,16 @@ int switch_function(va_list ap, const char format)
 		}
 	}
 	return (count);
+}
+
+/**
+ * search_advanced - searches for advanced tasks
+ * @c: char to be searched
+ * @count: number of given data
+ *
+ * Return: number of count.
+ */
+int search_advanced(__attribute__((unused)) const char c, __attribute__((unused)) va_list ap)
+{
+	return (0);
 }
