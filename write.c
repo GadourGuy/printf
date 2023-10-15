@@ -1,19 +1,33 @@
 #include "main.h"
 
 /**
+ * _strlen - gives the length of a string.
+ * @s: the string.
+ * Return: len.
+ */
+int _strlen(char *s)
+{
+	int len;
+
+	while (*s != '\0')
+		len++;
+	return (len);
+}
+/**
  * write_str - writes a string
  * @str: string to be written.
- * @count: number of printed data.
  * Return: written string
  */
 
-int write_str(char *str, int count)
+int write_str(char *str)
 {
-	while (*str != '\0')
+	int count = 0;
+
+	while (str != NULL && *str != '\0')
 	{
 		write_char(*str);
-		count++;
 		str++;
+		count++;
 	}
 	return (count);
 }
