@@ -8,22 +8,22 @@
  * Return: number of digits
  */
 
-int print_binary(int n, int count)
+int print_binary(int n)
 {
+	int count = 0;
+
 	if (n != 0)
 	{
-		print_binary(n / 2, count);
+		count = print_binary(n / 2);
 		if (n % 2 == 0)
 		{
 			write_char(0 + '0');
-			count++;
 		}
 		else
 		{
 			write_char(1 + '0');
-			count++;
 		}
+		count++;
 	}
-	count++;
 	return (count);
 }
