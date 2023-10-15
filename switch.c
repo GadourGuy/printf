@@ -42,7 +42,7 @@ int switch_function(va_list ap, const char format)
 		case ('b'):
 		{
 			d = va_arg(ap, int);
-			print_binary(d);
+			count += print_binary(d);
 			break;
 		}
 	}
@@ -52,11 +52,13 @@ int switch_function(va_list ap, const char format)
 /**
  * search_advanced - searches for advanced tasks
  * @c: char to be searched
- * @count: number of given data
+ * @ap: number of given data
  *
  * Return: number of count.
  */
-int search_advanced(__attribute__((unused)) const char c, __attribute__((unused)) va_list ap)
+int search_advanced(const char c, __attribute__((unused)) va_list ap)
 {
+	switch (c);
+
 	return (0);
 }

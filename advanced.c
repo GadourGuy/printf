@@ -3,7 +3,6 @@
 /**
  * print_binary - prints a number in binary
  * @n: number to be printed
- * @count: count of digits.
  *
  * Return: number of digits
  */
