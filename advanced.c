@@ -26,3 +26,88 @@ int print_binary(int n)
 	}
 	return (count);
 }
+/**
+ * print_unsigned - print unsigned number
+ * @u: number to be printed
+ * Return: count
+ */
+int print_unsigned(unsigned u)
+{
+	int count = 0;
+	if (u / 10 != 0)
+	{
+		count = print_number(u / 10);
+		count++;
+	}
+	write_char((u % 10) + '0');
+	return (count);
+}
+
+/**
+ * print_octal - prints a number in octal
+ * @n: number to be printed
+ * Return: count
+ */
+
+int print_octal(int n)
+{ 
+	int count = 0;
+        if (n != 0)
+        {
+		count = print_octal(n / 8);
+		write_char(n % 8 + '0');
+		count++;
+	}
+	return (count);
+}
+
+/**
+ * print_hexa - prints a number in hexa
+ * @n: number to be printed
+ * Return: count
+ */
+int print_s_hexa(int n)
+{
+	int x, count = 0;
+	char c;
+
+	if (n != 0)
+	{
+		count = print_s_hexa(n / 16);
+		x = n % 16;
+		if (x < 10)
+		       	write_char(x + '0');
+		else if (x >= 10 && x < 16)
+		{
+			c = 'a' + (x - 10);
+			write_char(c);
+		}
+		count++;
+	}
+	return (count);
+}
+/**
+ * * print_c_hexa - prints a number in hexa
+ * @n: number to be printed
+ * Return: count
+ */
+int print_c_hexa(int n)
+{
+	int x, count = 0;
+	char c;
+
+	if (n != 0)
+	{
+		count = print_s_hexa(n / 16);
+		x = n % 16;
+		if (x < 10)
+			write_char(x + '0');
+		else if (x >= 10 && x < 16)
+		{
+			c = 'A' + (x - 10);
+			write_char(c);
+		}
+		count++;
+	}
+	return (count);
+}
