@@ -42,7 +42,7 @@ int switch_function(va_list ap, const char format)
 		case ('b'):
 		{
 			d = va_arg(ap, int);
-			count += print_binary;
+			count += print_binary(d);
 			break;
 		}
 	}
