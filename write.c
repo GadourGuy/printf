@@ -23,13 +23,17 @@ int write_str(char *str)
 {
 	int count = 0;
 
-	while (str != NULL && *str != '\0')
+	if (str)
 	{
-		write_char(*str);
-		str++;
-		count++;
+		while (str != NULL && *str != '\0')
+		{
+			write_char(*str);
+			str++;
+			count++;
+		}
+		return (count);
 	}
-	return (count);
+	return (-1);
 }
 /**
  * write_char - writes a char
@@ -40,7 +44,9 @@ int write_str(char *str)
 
 int write_char(char c)
 {
-	return (write(1, &c, 1));
+	if (c)
+		return (write(1, &c, 1));
+	return (-1);
 }
 
 /**
