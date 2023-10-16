@@ -24,6 +24,11 @@ int _printf(const char *format, ...)
 			{
 				check = search_advanced(format[i], ap);
 				count += check;
+				if (!check)
+				{
+					check = search_advanced_2(format[i], ap);
+					count += check;
+				}
 			}
 		}
 			else
