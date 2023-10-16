@@ -159,7 +159,6 @@ int search_advanced_3(const char c, va_list ap)
 	switch (c)
 	{
 		case ('p'):
-		
 			{
 				pointer = va_arg(ap, void *);
 				if (pointer)
@@ -182,7 +181,7 @@ int search_advanced_3(const char c, va_list ap)
 		case ('R'):
 			{
 				str = va_arg(ap, char *);
-				if (str)
+				if (str && *str != '\0')
 					counter += print_R(str);
 				break;
 			}
