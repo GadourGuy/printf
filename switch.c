@@ -160,7 +160,10 @@ int search_advanced_3(const char c, va_list ap)
 		case ('p'):
 		{
 			pointer = va_arg(ap, void *);
-			counter += print_address(pointer);
+			if (pointer)
+				counter += print_address(pointer);
+			else
+				counter += write_str("(nil)");
 		}
 	}
 	return (counter);
