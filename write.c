@@ -44,9 +44,7 @@ int write_str(char *str)
 
 int write_char(char c)
 {
-	if (c)
-		return (write(1, &c, 1));
-	return (-1);
+	return (write(1, &c, 1));
 }
 
 /**
