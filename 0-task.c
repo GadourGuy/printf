@@ -13,31 +13,35 @@ int _printf(const char *format, ...)
 	va_list ap;
 
 	va_start(ap, format);
-	while (format && format[i])
+	if (format && format[i])
 	{
-		if (format[i] == '%')
+		while (format && format[i])
 		{
-			i++;
-			check = switch_function(ap, format[i]);
-			count += check;
-			if (!check)
+			if (format[i] == '%')
 			{
-				check = search_advanced(format[i], ap);
+				i++;
+				check = switch_function(ap, format[i]);
 				count += check;
 				if (!check)
 				{
-					check = search_advanced_2(format[i], ap);
+					check = search_advanced(format[i], ap);
 					count += check;
+					if (!check)
+					{
+						check = search_advanced_2(format[i], ap);
+						count += check;
+					}
 				}
 			}
+				else
+				{
+					write_char(format[i]);
+					count++;
+				}
+				i++;
 		}
-			else
-			{
-				write_char(format[i]);
-				count++;
-			}
-			i++;
-	}
 	va_end(ap);
 	return (count);
+	}
+	return (-1);
 }
