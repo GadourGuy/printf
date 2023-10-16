@@ -33,3 +33,39 @@ int print_S(char *c)
 	}
 	return (count);
 }
+
+/**
+ * print_address - prints the address of any pointer
+ * @addr: variable to be printed.
+ *
+ * Return: counter.
+ */
+
+int print_address(void *addr)
+{
+	unsigned long value = (unsigned long)addr;
+	char holder[16];
+	int i, count = 2;
+
+	write_char('0');
+	write_char('x');
+	for (i = 0; i < 16; i++)
+	{
+		holder[i] = value % 16;
+		value /= 16;
+	}
+	for (i = 11; i >= 0; i--)
+	{
+		if (holder[i] < 10)
+		{
+			write_char(holder[i] + '0');
+			count++;
+		}
+		else
+		{
+			write_char(holder[i] - 10 + 'a');
+			count++;
+		}
+	}
+	return (count);
+}

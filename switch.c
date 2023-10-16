@@ -22,10 +22,9 @@ int switch_function(va_list ap, const char format)
 		}
 		case ('s'):
 		{
-			str = malloc(sizeof(char *));
+			str = va_arg(ap, char *);
 			if (str)
 			{
-				str = va_arg(ap, char *);
 				count += write_str(str);
 			}
 			else
@@ -139,6 +138,30 @@ int search_advanced_2(const char c, va_list ap)
 			}
 			break;
 		}
+		default:
+			count += search_advanced_3(c, ap);
 	}
 	return (count);
+}
+
+/**
+ * search_advanced_3 - searches for more cases
+ * @c: char to be searched
+ * @ap: number of given data
+ * Return: number of count.
+ */
+int search_advanced_3(const char c, va_list ap)
+{
+	void *pointer;
+	int counter = 0;
+
+	switch (c)
+	{
+		case ('p'):
+		{
+			pointer = va_arg(ap, void *);
+			counter += print_address(pointer);
+		}
+	}
+	return (counter);
 }
