@@ -9,39 +9,27 @@
 
 int print_S(char *c)
 {
-	int count = 0, i = 0;
+	int count = 0, i = 0, value;
 
 	while (c[i] != '\0')
 	{
 		if (c[i] < 32 || c[i] >= 127)
 		{
-			count += write_char('\\');
-			count += write_char('n');
-			if (c[i] / 16 < 10)
+			count += write_str("\\x");
+			value = (int)c[i];
+			if (value < 16)
 			{
-				count += write_char((c[i] / 16) + '0');
-
+				write_char(0 + '0');
+				count++;
 			}
-			else
-			{
-				count += write_char((c[i] / 16) - 10 + c[i]);
-			}
-			if ((c[i] % 16) < 10)
-			{
-				count += write_char((c[i] % 16) + '0');
-			}
-			else
-			{
-				count += write_char((c[i] % 16) - 10 + c[i]);
-			}
-			i++;
+			count += print_c_hexa((unsigned int)value);
 		}
 		else
 		{
-			write_char(*c);
+			write_char(c[i]);
 			count++;
-			i++;
 		}
+		i++;
 	}
 	return (count);
 }
