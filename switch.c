@@ -64,19 +64,25 @@ int search_advanced(const char c, va_list ap)
 		case ('o'):
 		{
 			u = va_arg(ap, unsigned int);
-			count += print_octal(u);
+			if (u != 0)
+				count += print_octal(u);
+			else
+			{
+				write_char('0');
+				count++;
+			}
 			break;
 		}
 		case ('x'):
 		{
 			u = va_arg(ap, unsigned int);
-			count += print_s_hexa(u);
-			break;
-		}
-		case ('X'):
-		{
-			u = va_arg(ap, unsigned int);
-			count += print_c_hexa(u);
+			if (u != 0)
+				count += print_s_hexa(u);
+			else
+			{
+				write_char('0');
+				count++;
+			}
 			break;
 		}
 	}
@@ -108,6 +114,18 @@ int search_advanced_2(const char c, va_list ap)
 			u = va_arg(ap, unsigned int);
 			if (u != 0)
 				count += print_binary(u);
+			else
+			{
+				write_char('0');
+				count++;
+			}
+			break;
+		}
+		case ('X'):
+		{
+			u = va_arg(ap, unsigned int);
+			if (u != 0)
+				count += print_c_hexa(u);
 			else
 			{
 				write_char('0');

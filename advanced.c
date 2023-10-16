@@ -33,7 +33,7 @@ int print_binary(unsigned int n)
  */
 int print_unsign(unsigned int u)
 {
-	int count = 0;
+	int count = 1;
 
 	if (u / 10 != 0)
 	{
