@@ -44,12 +44,12 @@ int print_S(char *c)
 int print_address(void *addr)
 {
 	unsigned long value = (unsigned long)addr;
-	char holder[16];
+	char holder[12];
 	int i, count = 2;
 
 	write_char('0');
 	write_char('x');
-	for (i = 0; i < 16; i++)
+	for (i = 0; i < 12; i++)
 	{
 		holder[i] = value % 16;
 		value /= 16;
@@ -102,22 +102,22 @@ int print_reversed(char *str)
 
 int print_R(char *str)
 {
-	int i = 0, count = 0;
+	int i = 0, j = 0, count = 0;
 	char alpha[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 	char rot[] = "nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXYZABCDEFGHIJKLM";
 
-	while (*str != '\0')
+	while (str[j] != '\0')
 	{
 		for (i = 0; i <= 52; i++)
 		{
-			if (*str == alpha[i])
+			if (str[j] == alpha[i])
 			{
 				write_char(rot[i]);
 				count++;
 				break;
 			}
 		}
-		str++;
+		j++;
 	}
 	return (count);
 }
