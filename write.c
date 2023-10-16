@@ -23,11 +23,14 @@ int write_str(char *str)
 {
 	int count = 0;
 
-	while (str != NULL && *str != '\0')
+	if (str)
 	{
-		write_char(*str);
-		str++;
-		count++;
+		while (str != NULL && *str != '\0')
+		{
+			write_char(*str);
+			str++;
+			count++;
+		}
 		return (count);
 	}
 	return (0);
