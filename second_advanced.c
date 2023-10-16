@@ -92,3 +92,32 @@ int print_reversed(char *str)
 	}
 	return (count);
 }
+
+/**
+ * print_R - prints rot13 string
+ * @str: string to be printed
+ *
+ * Return: count.
+ */
+
+int print_R(char *str)
+{
+	int i = 0, count = 0;
+	char alpha[] ="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+	char rot[] = "nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXYZABCDEFGHIJKLM";
+
+	while (*str != '\0')
+	{
+		for (i = 0; i <= 52; i++)
+		{
+			if (*str == alpha[i])
+			{
+				write_char(rot[i]);
+				count++;
+				break;
+			}
+		}
+		str++;
+	}
+	return (count);
+}

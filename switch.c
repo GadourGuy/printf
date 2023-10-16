@@ -179,6 +179,13 @@ int search_advanced_3(const char c, va_list ap)
 				break;
 
 			}
+		case ('R'):
+			{
+				str = va_arg(ap, char *);
+				if (str)
+					counter += print_R(str);
+				break;
+			}
 
 	}
 	return (counter);
