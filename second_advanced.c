@@ -44,7 +44,7 @@ int print_S(char *c)
 int print_address(void *addr)
 {
 	unsigned long value = (unsigned long)addr;
-	char holder[14];
+	char holder[16];
 	int i, count = 2;
 
 		write_char('0');
