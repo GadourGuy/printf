@@ -22,8 +22,13 @@ int switch_function(va_list ap, const char format)
 		}
 		case ('s'):
 		{
-			str = va_arg(ap, char *);
-			count += write_str(str);
+			str = malloc(sizeof(va_arg(ap, char *)));
+			if (str)
+			{
+				str = va_arg(ap, char *);
+				count += write_str(str);
+			}
+			free(str);
 			break;
 		}
 		case ('d'):
