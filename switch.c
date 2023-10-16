@@ -55,12 +55,6 @@ int search_advanced(const char c, va_list ap)
 
 	switch (c)
 	{
-		case ('b'):
-		{
-			u = va_arg(ap, unsigned int);
-			count += print_binary(u);
-		break;
-		}
 		case ('u'):
 		{
 			u = va_arg(ap, unsigned int);
@@ -99,6 +93,7 @@ int search_advanced_2(const char c, va_list ap)
 {
 	char *ch;
 	int count = 0;
+	unsigned int u;
 
 	switch (c)
 	{
@@ -106,6 +101,18 @@ int search_advanced_2(const char c, va_list ap)
 		{
 			ch = va_arg(ap, char *);
 			count += print_S(ch);
+			break;
+		}
+		case ('b'):
+		{
+			u = va_arg(ap, unsigned int);
+			if (u != 0)
+				count += print_binary(u);
+			else
+			{
+				write_char('0');
+				count++;
+			}
 			break;
 		}
 	}
