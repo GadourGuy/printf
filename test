@@ -12,11 +12,11 @@ int main(void)
     int len;
     int len2;
     unsigned int ui;
-    void *addr;
-
+    void *addr = malloc(sizeof(int) * 10);
+int (*functionPtr)(char) = write_char;
     addr = &len;
-    len = _printf("Let's try to printf a simple address %p.\n", addr);
-    len2 = printf("Let's try to printf a simple address %p.\n", addr);
+    len = _printf("Dynamic Array Address: %p\n", (void*)addr);
+    len2 = printf("Dynamic Array Address: %p\n", (void*)addr);
     ui = (unsigned int)INT_MAX + 1024;
     addr = (void *)0x7ffe637541f0;
     _printf("Length:[%d, %i]\n", len, len);

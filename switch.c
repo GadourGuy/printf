@@ -154,17 +154,32 @@ int search_advanced_3(const char c, va_list ap)
 {
 	void *pointer;
 	int counter = 0;
+	char *str;
 
 	switch (c)
 	{
 		case ('p'):
-		{
-			pointer = va_arg(ap, void *);
-			if (pointer)
-				counter += print_address(pointer);
-			else
-				counter += write_str("(nil)");
-		}
+		
+			{
+				pointer = va_arg(ap, void *);
+				if (pointer)
+				{
+					if (pointer)
+						counter += print_address(pointer);
+					else
+						counter += write_str("(nil)");
+				}
+				break;
+			}
+		case ('r'):
+			{
+				str = va_arg(ap, char *);
+				if (str)
+					counter += print_reversed(str);
+				break;
+
+			}
+
 	}
 	return (counter);
 }

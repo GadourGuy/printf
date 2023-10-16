@@ -24,6 +24,7 @@ int print_S(char *c);
 int search_advanced_2(const char c, va_list ap);
 int print_address(void *addr);
 int search_advanced_3(const char c, va_list ap);
+int print_reversed(char *str);
 /**
  * struct search - searches for certain values
  * @f: function pointer

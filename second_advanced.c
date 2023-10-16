@@ -69,3 +69,26 @@ int print_address(void *addr)
 	}
 	return (count);
 }
+
+/**
+ * print_reversed - prints string in reverse
+ * @str: string to be reversed
+ *
+ * Return: count
+ */
+
+int print_reversed(char *str)
+{
+	int count = 0, i = 0;
+
+	for (i = 0; str[i] != '\0'; i++)
+		;
+	i--;
+	while (i >= 0)
+	{
+		write_char(str[i]);
+		count++;
+		i--;
+	}
+	return (count);
+}
