@@ -30,6 +30,8 @@ int _printf(const char *format, ...)
 					{
 						check = search_advanced_2(format[i], ap);
 						count += check;
+						if (!check)
+							return (-1);
 					}
 				}
 			}
