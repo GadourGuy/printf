@@ -1,6 +1,8 @@
 #include "main.h"
 /**
- *
+ * print_long - a function to print long int
+ * @n: long int to be printed
+ * Return: count of printed chars
  */
 int print_long(long int n)
 {
@@ -24,9 +26,11 @@ int print_long(long int n)
 }
 
 /**
- *
- * */
-int print_long_unsign(long unsigned int u)
+ * print_long_unsign - a function to print long unsigned int
+ * @u: long unsigned int to be printed
+ * Return: count of printed chars
+ */
+int print_long_unsign(unsigned long int u)
 {
 	int count = 1;
 
