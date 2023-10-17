@@ -29,6 +29,12 @@ int switch_advanced_long(va_list ap, const char *format, int i, int *i_p)
 		count += print_long_unsign(u);
 		*i_p += 1;
 	}
+	else if ((b == 'l') && (c == 'o'))
+	{
+		u = va_arg(ap, long int);
+		 count += print_un_octal(u);
+		 *i_p += 1;
+	}
 	else
 		return (-1); /*temperory*/
 	return (count);
