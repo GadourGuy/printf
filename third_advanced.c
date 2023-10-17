@@ -18,7 +18,7 @@ int switch_advanced_three(va_list ap, const char *format, int i, int *i_p)
 	c = format[i + 1];
 	for (j = i; b != '\0'; j++)
 	{
-		if (((b == '+') || (b == ' ')) && (c == 'd'))
+		if (((b == '+') || (b == ' ')) && ((c == 'd') || (c == 'i')))
 		{
 			d = va_arg(ap, int);
 			if (d >= 0)
@@ -33,7 +33,7 @@ int switch_advanced_three(va_list ap, const char *format, int i, int *i_p)
 			count += print_number(d);
 			break;
 		}
-		if (((b == '+') || (b == ' ')) && (c == 'i'))
+		if (((b == '+') || (b == ' ')) && (c == 'u'))
 		{
 			u = va_arg(ap, int);
 			if (b == '+')
@@ -50,11 +50,9 @@ int switch_advanced_three(va_list ap, const char *format, int i, int *i_p)
 			count += switch_ad_cont(ap, format, i, i_p);
 			break;
 		}
-
 	}
 	return (count);
 }
-
 /**
  * switch_ad_cont - continue the previous function
  * @ap: va list
