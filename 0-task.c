@@ -9,9 +9,8 @@
 
 int _printf(const char *format, ...)
 {
-	int i = 0, count = 0, check, ii;
+	int i = 0, count = 0, check;
 	va_list ap;
-	int *i_p = &ii;
 
 	va_start(ap, format);
 	if (format && format[i])
@@ -32,15 +31,14 @@ int _printf(const char *format, ...)
 						check = search_advanced_2(format[i], ap);
 						count += check;
 					}
-					if (!check)
-					{
-						check = switch_advanced_three(ap, format, i, i_p);
-						count += check;
-						if (check)
-							i += *i_p;
-					}
 				}
 			}
+				else if (!check)
+				{
+					check = switch_advanced_three(ap, format, i);
+					count += check;
+					i++;
+				}
 			else
 				{
 					write_char(format[i]);
