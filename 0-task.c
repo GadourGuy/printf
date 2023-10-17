@@ -9,8 +9,9 @@
 
 int _printf(const char *format, ...)
 {
-	int i = 0, count = 0, check;
+	int i = 0, count = 0, check, ii;
 	va_list ap;
+	int *i_p = &ii;
 
 	va_start(ap, format);
 	if (format && format[i])
@@ -33,10 +34,10 @@ int _printf(const char *format, ...)
 					}
 					if (!check)
 					{
-						check = switch_advanced_three(ap, format, i);
+						check = switch_advanced_three(ap, format, i, i_p);
 						count += check;
 						if (check)
-							i++;
+							i += *i_p;
 					}
 				}
 			}
