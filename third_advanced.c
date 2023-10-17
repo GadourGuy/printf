@@ -25,25 +25,13 @@ int switch_advanced_three(va_list ap, const char *format, int i, int *i_p)
 				if (b == '+')
 					write_char('+');
 				if (b == ' ')
-					 write_char(' ');
+					write_char(' ');
 				count++;
 				*i_p += 1;
 			}
 			count += print_number(d);
 			break;
 		}
-		/*}
-		else if ((b == ' ') && ((c == 'd') || (c == 'i')))
-		{
-			d = va_arg(ap, int);
-			if (d >= 0)
-			{
-				 write_char(' ');
-				 count += 1;
-			}
-			count += print_number(d);
-			break;
-		}*/
 		else if ((b == '#') && ((c == 'X') || (c == 'x')))
 		{
 			u = va_arg(ap, int);
@@ -65,6 +53,8 @@ int switch_advanced_three(va_list ap, const char *format, int i, int *i_p)
 			*i_p += 1;
 			break;
 		}
+		else
+			return (-1);
 	}
 	return (count);
 }
