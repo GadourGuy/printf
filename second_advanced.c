@@ -82,7 +82,7 @@ int print_reversed(char *str)
 	int count = 0, i = 0;
 
 	if (str == NULL)
-		return (0);
+		return (-1);
 	for (i = 0; str[i] != '\0'; i++)
 		;
 	i--;
@@ -109,7 +109,7 @@ int print_R(char *str)
 	char rot[] = "nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXYZABCDEFGHIJKLM";
 
 	if (str == NULL)
-		return (0);
+		return (-1);
 	while (str[j] != '\0')
 	{
 		for (i = 0; i <= 52; i++)
