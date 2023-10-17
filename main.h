@@ -34,6 +34,7 @@ int switch_advanced_long(va_list ap, const char *format, int i, int *i_p);
 int print_unc_hexa(unsigned long int n);
 int print_uns_hexa(unsigned long int n);
 int print_un_octal(unsigned long int n);
+int _print_continue(va_list ap, const char *format,int i,int *i_p);
 /**
  * struct search - searches for certain values
  * @f: function pointer

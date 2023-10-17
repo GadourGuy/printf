@@ -15,12 +15,13 @@ int main(void)
     void *addr;
     int x = -250;
     char *str;
+    long int l = 9009;
     unsigned int y = -250;
 
 	str = "gfdkjhrfdjghfdkhgfdk";
 
-	   printf("count %+d\n",printf("%#o this\n", 25450));
-	printf("count %+d\n",_printf("%#o this\n", 25450));
+	 printf("count %d\n",printf("%ld this\n", l));
+	printf("count %d\n",_printf("%ld this\n", l));
        	_printf("%c", 'S');
   _printf("A char inside a sentence: %c. Did it work?\n", 'F');
   _printf("cast %c. \n", 48);

@@ -9,26 +9,29 @@
  */
 int switch_advanced_three(va_list ap, const char *format, int i, int *i_p)
 {
-	int d, count = 0;
+	int d, count = 0, j;
 	char b, c;
 	unsigned int u;
 
 	*i_p = 0;
 	b = format[i];
 	c = format[i + 1];
-	if (((b == '+') || (b == ' ')) && ((c == 'd') || (c == 'i')))
+	for (j = i; b != '\0'; j++)
 	{
-		d = va_arg(ap, int);
-		if (d >= 0)
+		if (((b == '+') || (b == ' ')) && ((c == 'd') || (c == 'i')))
 		{
-			if (b == '+')
-				write_char('+');
-			if (b == ' ')
-				write_char(' ');
-			count++;
-			*i_p += 1;
-		}
-			count += print_number(d);
+			d = va_arg(ap, int);
+			if (d >= 0) 
+			{
+		       		if (b == '+')
+					write_char('+');
+				if ((d >= 0) && (b == ' '))
+					write_char(' ');
+				count++;
+				*i_p += 1;
+			}
+				count += print_number(d);
+				break;
 		}
 		if (((b == '+') || (b == ' ')) && (c == 'u'))
 		{
@@ -40,11 +43,14 @@ int switch_advanced_three(va_list ap, const char *format, int i, int *i_p)
 			count++;
 			*i_p += 1;
 			count += print_unsign(u);
+			break;
 		}
 		else
 		{
 			count += switch_ad_cont(ap, format, i, i_p);
+			break;
 		}
+	}
 	return (count);
 }
 /**
