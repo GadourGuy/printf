@@ -31,14 +31,14 @@ int _printf(const char *format, ...)
 						check = search_advanced_2(format[i], ap);
 						count += check;
 					}
+					if (!check)
+					{
+						check = switch_advanced_three(ap, format, i);
+						count += check;
+						i++;
+					}
 				}
 			}
-				else if (!check)
-				{
-					check = switch_advanced_three(ap, format, i);
-					count += check;
-					i++;
-				}
 			else
 				{
 					write_char(format[i]);
