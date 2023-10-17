@@ -25,19 +25,14 @@ int _printf(const char *format, ...)
 				count += check;
 				if (!check)
 				{
-					check = search_advanced(format[i], ap);
+					check = switch_advanced_three(ap, format, i, i_p);
 					count += check;
-					if (!check)
+					if (check)
+						i += *i_p;
+					else
 					{
-						check = search_advanced_2(format[i], ap);
-						count += check;
-					}
-					if (!check)
-					{
-						check = switch_advanced_three(ap, format, i, i_p);
-						count += check;
-						if (check)
-							i += *i_p;
+						write_char(format[i]);
+						count++;
 					}
 				}
 			}

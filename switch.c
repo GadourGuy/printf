@@ -7,8 +7,7 @@
  */
 int switch_function(va_list ap, const char format)
 {
-	int count = 0;
-	int d;
+	int count = 0, d;
 	char c, *str;
 
 	switch (format)
@@ -44,6 +43,8 @@ int switch_function(va_list ap, const char format)
 			count++;
 			break;
 		}
+		default:
+			count += search_advanced(format, ap);
 	}
 	return (count);
 }
@@ -90,6 +91,8 @@ int search_advanced(const char c, va_list ap)
 			}
 			break;
 		}
+		default:
+			count += search_advanced_2(c, ap);
 	}
 	return (count);
 }

@@ -21,9 +21,9 @@ int switch_advanced_three(va_list ap, const char *format, int i, int *i_p)
 		if (((b == '+') || (b == ' ')) && ((c == 'd') || (c == 'i')))
 		{
 			d = va_arg(ap, int);
-			if (d >= 0) 
+			if (d >= 0)
 			{
-		       		if (b == '+')
+				if (b == '+')
 					write_char('+');
 				if ((d >= 0) && (b == ' '))
 					write_char(' ');
