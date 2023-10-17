@@ -33,7 +33,13 @@ int _printf(const char *format, ...)
 					}
 				}
 			}
-				else
+				else if (!check)
+				{
+					check = switch_advanced_three(ap, format, i);
+					count += check;
+					i++;
+				}
+			else
 				{
 					write_char(format[i]);
 					count++;
