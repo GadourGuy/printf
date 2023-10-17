@@ -11,7 +11,6 @@ int switch_advanced_three(va_list ap, const char *format, int i, int *i_p)
 {
 	int d, count = 0, j;
 	char b, c;
-	/*unsigned int u;*/
 
 	*i_p = 0;
 	b = format[i];
@@ -33,19 +32,49 @@ int switch_advanced_three(va_list ap, const char *format, int i, int *i_p)
 				count += print_number(d);
 				break;
 		}
-		/*
-		 * if (((b == '+') || (b == ' ')) && (c == 'u'))
-		*{
-		*	u = va_arg(ap, int);
-		*	if (b == '+'write_char('+');
-		*if (b == ' ')write_char(' ') count++ *i_p += 1;
-		*	count += print_unsign(u);
-		*	break;}
-		*/
+		else
+		{
+			count += switch_ad_unsign(ap, format, i, i_p);
+		}
+		break;
+	}
+
+	return (count);
+}
+/**
+ * switch_ad_unsign - switch for unsigned
+ * @ap: va list
+ * @i: counter
+ * @i_p: pointer to i_p
+ * @format: format list
+ *  Return: count
+ */
+int switch_ad_unsign(va_list ap, const char *format, int i, int *i_p)
+{
+	int count = 0, j;
+	char b, c;
+	unsigned int u;
+
+
+	b = format[i];
+	c = format[i + 1];
+	for (j = i; b != '\0'; j++)
+	{
+		if (((b == '+') || (b == ' ')) && (c == 'u'))
+		{
+			u = va_arg(ap, int);
+			if (b == '+')
+				write_char('+');
+			if (b == ' ')
+				write_char(' ');
+			count++;
+			*i_p += 1;
+			count += print_unsign(u);
+			break;
+		}
 		else
 		{
 			count += switch_ad_cont(ap, format, i, i_p);
-			break;
 		}
 	}
 	return (count);
