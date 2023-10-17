@@ -18,7 +18,7 @@ int switch_advanced_three(va_list ap, const char *format, int i, int *i_p)
 	c = format[i + 1];
 	for (j = i; b != '\0'; j++)
 	{
-		if (((b == '+') || (b == ' ')) && ((c == 'd') || (c == 'i')))
+		if (((b == '+') || (b == ' ')) && (c == 'd'))
 		{
 			d = va_arg(ap, int);
 			if (d >= 0)
@@ -98,7 +98,8 @@ int switch_ad_cont(va_list ap, const char *format, int i, int *i_p)
 		}
 		else
 		{
-			return (-1);
+			count += switch_advanced_long(ap, format, i, i_p);
+			break;
 		}
 	}
 	return (count);
