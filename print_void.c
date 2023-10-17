@@ -7,21 +7,22 @@
 int print_long(long int n)
 {
 	int count = 0;
-	long int i;
+	unsigned long int i;
 
 	if (n < 0)
 	{
-		n *= -1;
+		i = -n;
 		write_char('-');
-	}
-	i = n;
-	count++;
-	if (i / 10 != 0)
-	{
-		count = print_number(i / 10);
 		count++;
 	}
+	else
+		i = n;
+	if (i / 10 != 0)
+	{
+		count += print_number(i / 10);
+	}
 	write_char((i % 10) + '0');
+	count++;
 	return (count);
 }
 
