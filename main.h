@@ -27,6 +27,7 @@ int search_advanced_3(const char c, va_list ap);
 int print_reversed(char *str);
 int print_R(char *str);
 int switch_advanced_three(va_list ap, const char *format, int i, int *i_p);
+int switch_ad_cont(va_list ap, const char *format, int i, int *i_p);
 
 /**
  * struct search - searches for certain values
