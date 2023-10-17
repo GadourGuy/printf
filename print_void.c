@@ -43,7 +43,7 @@ int print_long_unsign(unsigned long int u)
 	return (count);
 }
 /**
- * print_long_oct - prints long oct* @n: number to be printed
+ * print_un_octal - prints long oct* @n: number to be printed
  * @n: number to be printed
  * Return: count
  */
@@ -61,7 +61,7 @@ int print_un_octal(unsigned long int n)
 	return (count);
 }
 /**
- * print_s_hexa - prints a long number in hexa
+ * print_uns_hexa - prints a long number in hexa
  * @n: number to be printed
  * Return: count
  */
@@ -86,7 +86,7 @@ int print_uns_hexa(unsigned long int n)
 	return (count);
 }
 /**
- * print_c_hexa - prints a long number in hexa
+ * print_unc_hexa - prints a long number in hexa
  * @n: number to be printed
  * Return: count
  */
