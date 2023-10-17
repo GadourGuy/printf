@@ -114,7 +114,8 @@ int search_advanced_2(const char c, va_list ap)
 		case ('S'):
 		{
 			ch = va_arg(ap, char *);
-			count += print_S(ch);
+			if (ch)
+				count += print_S(ch);
 			break;
 		}
 		case ('b'):
@@ -144,8 +145,7 @@ int search_advanced_2(const char c, va_list ap)
 		default:
 			count += search_advanced_3(c, ap);
 	}
-	return (count);
-}
+	return (count);       }
 
 /**
  * search_advanced_3 - searches for more cases
@@ -184,7 +184,7 @@ int search_advanced_3(const char c, va_list ap)
 		case ('R'):
 			{
 				str = va_arg(ap, char *);
-				if (str && *str != '\0')
+				if (str)
 					counter += print_R(str);
 				break;
 			}
