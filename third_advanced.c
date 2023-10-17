@@ -100,7 +100,6 @@ int switch_ad_cont(va_list ap, const char *format, int i, int *i_p)
 	{
 		if ((b == '#') && ((c == 'X') || (c == 'x')))
 		{
-			for (j = i; b != '\0'; j++)
 			u = va_arg(ap, int);
 			write_char('0');
 			write_char('x');
