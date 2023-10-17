@@ -48,14 +48,15 @@ int switch_advanced_three(va_list ap, const char *format, int i)
 				count += print_s_hexa(u);
 			if (c == 'X')
 				count += print_c_hexa(u);
+			break;
 		}
 		else if ((b == '#') && (c == 'o'))	
-			{
-				u = va_arg(ap, int);
-				write_char('0');
-				count += print_octal(u) + 1;
-				break;
-			}
+		{
+			u = va_arg(ap, int);
+			write_char('0');
+			count += print_octal(u) + 1;
+			break;
+		}
 		}
 	return (count);
 }
