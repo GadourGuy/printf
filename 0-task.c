@@ -35,7 +35,8 @@ int _printf(const char *format, ...)
 					{
 						check = switch_advanced_three(ap, format, i);
 						count += check;
-						i++;
+						if (check)
+							i++;
 					}
 				}
 			}
