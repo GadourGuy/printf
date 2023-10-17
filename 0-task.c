@@ -29,11 +29,6 @@ int _printf(const char *format, ...)
 					count += check;
 					if (check)
 						i += *i_p;
-					else
-					{
-						write_char(format[i]);
-						count++;
-					}
 				}
 			}
 			else
