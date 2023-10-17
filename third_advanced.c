@@ -1,16 +1,17 @@
 #include "main.h"
 /**
- * switch_flags - searches for flags
+ * switch_advanced_three - searches for flags
  * @ap: va list
  * @format: format
  * @i: counter
+ * @i_p: pointer to i_p
  * Return: count
  */
 int switch_advanced_three(va_list ap, const char *format, int i, int *i_p)
 {
 	int d, count = 0, j;
 	char b, c;
-	
+
 	*i_p = 0;
 	b = format[i];
 	c = format[i + 1];
@@ -34,7 +35,7 @@ int switch_advanced_three(va_list ap, const char *format, int i, int *i_p)
 
 		else
 		{
-			count += switch_ad_cont(ap, format,i , i_p);
+			count += switch_ad_cont(ap, format, i, i_p);
 			break;
 		}
 
@@ -47,14 +48,15 @@ int switch_advanced_three(va_list ap, const char *format, int i, int *i_p)
  * @ap: va list
  * @format: format
  * @i: counter
+ * @i_p: pointer
  * Return: count
  */
 int switch_ad_cont(va_list ap, const char *format, int i, int *i_p)
 {
- 	int count = 0, j;
- 	unsigned int u;
+	int count = 0, j;
+	unsigned int u;
 	char b, c;
-	
+
 	*i_p = 0;
 	b = format[i];
 	c = format[i + 1];
@@ -85,8 +87,9 @@ int switch_ad_cont(va_list ap, const char *format, int i, int *i_p)
 		else
 		{
 			return (-1);
-			break;
-		}	
+		}
+		if (b == '\0')
+			return (-1);
 	}
 	return (count);
 }
